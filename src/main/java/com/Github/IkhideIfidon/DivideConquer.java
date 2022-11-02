@@ -58,7 +58,18 @@ public class DivideConquer {
 
 
     // Using Priority Queue
-    public ListNode mergeKLists(ListNode[] lists) {
+    // Time = O(nlogK)
+    // Space = O(K)
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        public ListNode() {}
+        public ListNode(int val) { this.val = val; }
+        public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+
+    public static ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         // Natural order comparator
         Comparator<ListNode> comp = (L1, L2) -> {
@@ -92,14 +103,14 @@ public class DivideConquer {
     // Using Divide and Conquer
     // Time = O(nlogn)
     // Space = O(n)
-    public ListNode mergeKLists2(ListNode[] lists) {
+    public static ListNode mergeKLists2(ListNode[] lists) {
         if (lists == null || lists.length == 0)
             return null;
 
         return divide(lists, 0, lists.length - 1);
     }
 
-    private ListNode divide(ListNode[] lists, int low, int high) {
+    private static ListNode divide(ListNode[] lists, int low, int high) {
         int mid = low + (high - low) / 2;
         if (low < high) {
             ListNode left = divide(lists, low, mid);
@@ -109,7 +120,7 @@ public class DivideConquer {
         return lists[low];
     }
 
-    private ListNode merge(ListNode left, ListNode right) {
+    private static ListNode merge(ListNode left, ListNode right) {
         ListNode result = new ListNode(0);
         ListNode tail = result;
 
@@ -134,7 +145,55 @@ public class DivideConquer {
         return result.next;
     }
 
+    // Medium: Maximum Sub-array.
+    // Time = O(nlogn)
+    // Space = O(1)
+    public static int maxSubarray(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int left = 0;
+        int right = nums.length - 1;
+        return helper(nums, left, right);
+    }
 
+    private static int helper(int[] nums, int left, int right) {
+        if (left == right) return nums[left];                   // if nums contains only one element
+
+        int mid = left + (right - left) / 2;
+        int leftMax = Integer.MIN_VALUE;
+        int currentSum = 0;
+        for (int i = mid; i >= left; i--) {
+            currentSum += nums[i];
+            if (currentSum > leftMax)
+                leftMax = currentSum;
+        }
+
+        int rightMax = Integer.MIN_VALUE;
+        currentSum = 0;
+        for (int i = mid + 1; i <= right; i++) {
+            currentSum += nums[i];
+            if (currentSum > rightMax)
+                rightMax = currentSum;
+        }
+
+        int maxLeftRight = Math.max(helper(nums, left, mid), helper(nums, mid + 1, right));
+
+        return Math.max(maxLeftRight, leftMax + rightMax);
+    }
+
+    // Medium: Maximum Sub-array.
+    // Time = O(n)
+    // Space = O(1)
+    public static int maxSubarrayKadane(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int currentSum = 0;
+        int maxSum = Integer.MIN_VALUE;
+        for (int num : nums) {
+            currentSum = Math.max(currentSum + num, num);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        return maxSum;
+
+    }
 
 
 }
