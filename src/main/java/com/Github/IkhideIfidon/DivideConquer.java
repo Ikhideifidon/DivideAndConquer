@@ -60,37 +60,6 @@ public class DivideConquer {
     // Using Priority Queue
     // Time = O(nlogK)
     // Space = O(K)
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-        public ListNode() {}
-        public ListNode(int val) { this.val = val; }
-        public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-
-        public void add(ListNode head, int data) {
-            @SuppressWarnings("WriteOnlyObject")
-            ListNode newNode = new ListNode(data);
-            newNode.next = head;
-        }
-
-        public void addAll(int[] keys) {
-            ListNode head = new ListNode();
-            for (int key : keys)
-                head.add(head, key);
-        }
-
-        public static void printList(ListNode head) {
-            ListNode pointer = head;
-            while (pointer != null)
-            {
-                System.out.print(pointer.val + " —> ");
-                pointer = pointer.next;
-            }
-            System.out.println("null");
-        }
-    }
-
     public static ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         // Natural order comparator
