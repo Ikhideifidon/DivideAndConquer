@@ -1,0 +1,18 @@
+On a randomly generated data of size 10 EXP 9, the following are the results:
+
+Randomized Partition
+Time elapsed is: 265 milliseconds
+The 60th smallest element in the array is 638
+
+Hoare Partition
+Time elapsed is: 143 milliseconds
+The 60th smallest element in the array is 638
+
+MergeSort
+Time elapsed is: 8440 milliseconds
+
+QuickSort Based on Hoare's  Partition
+Time elapsed is: 1796 milliseconds
+
+QuickSort Based on Randomized  Partition
+Time elapsed is: 7072 milliseconds

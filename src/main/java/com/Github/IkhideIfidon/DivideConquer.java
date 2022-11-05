@@ -1,9 +1,13 @@
 package com.Github.IkhideIfidon;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
+import java.util.Random;
 
 public class DivideConquer {
+
+    private static final Random rand = new Random(0);
 
     // Hard: Median of Two Sorted Arrays.
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
@@ -183,7 +187,153 @@ public class DivideConquer {
             maxSum = Math.max(maxSum, currentSum);
         }
         return maxSum;
+    }
 
+    public static int partition(int[] A, int left, int right) {
+        if (A == null || A.length == 0) return -1;
+
+        int i = left - 1;
+        int pivot = A[right];
+
+        for (int j = left; j < right; j++) {
+            if (A[j] <= pivot) {
+                int temp = A[j];
+                A[j] = A[i + 1];
+                A[i + 1] = temp;
+                i++;
+            }
+        }
+        int temp = A[i + 1];
+        A[i + 1] = A[right];
+        A[right] =temp;
+
+        // pivot index
+        return i + 1;
+    }
+
+    public static int hoarePartition(int[] A, int lower, int upper) {
+        if (A == null) throw new NullPointerException("Array cannot be null.");
+        else if (lower > upper) return -1;
+
+        int middle = lower + (upper - lower) / 2;
+        int pivot = A[middle];
+        // Swap middle element with left element.
+        A[middle] = A[lower];
+        A[lower] = pivot;
+
+        // Advance the left pointer by 1
+        int left = lower + 1;
+        int right = upper;
+
+        boolean finished = false;
+        while (!finished) {
+
+            while (left <= right && A[left] <= pivot)
+                left++;
+
+            while (A[right] > pivot)
+                right--;
+
+            if (left < right) {
+                int temp = A[left];
+                A[left] = A[right];
+                A[right] = temp;
+            }
+            finished = left > right;
+        }
+
+        int temp = A[lower];
+        A[lower] = A[right];
+        A[right] = temp;
+        return right;
+    }
+
+    public static int randomizedPartition(int[] A, int left, int right) {
+        if (A == null || A.length == 0) return -1;
+        int pivotIndex = rand.nextInt(left, right + 1);
+
+        // Swap element at the pivotIndex with the element at the right.
+        // This is to ensure that the pivot element is always at the right.
+        int temp = A[pivotIndex];
+        A[pivotIndex] = A[right];
+        A[right] = temp;
+
+        return partition(A, left, right);
+
+    }
+
+    private static void quickSortHelper(int[] A, int left, int right) {
+        if (left >= right) return;
+        int q = randomizedPartition(A, left, right);
+        quickSortHelper(A, left, q - 1);
+        quickSortHelper(A, q + 1, right);
+    }
+
+    public static void quickSort(int[] A) {
+        if (A == null || A.length <= 1) return;
+        quickSortHelper(A, 0, A.length - 1);
+    }
+
+    private static int quickSelectHelper(int[] A, int k, int left, int right) {
+        if (left == right) return A[left];
+        int q = hoarePartition(A, left, right);              // Partition index.
+        if (q == k - 1) return A[q];                              // Array is 0-indexed
+        else if (q < k - 1) return quickSelectHelper(A, k,q + 1, right);
+        return quickSelectHelper(A, k, left, q - 1);
+    }
+
+    public static int quickSelect(int[] A, int k) {
+        if (A == null) throw new NullPointerException("Array cannot be null.");
+        else if (A.length == 0) throw new ArrayIndexOutOfBoundsException("Array cannot be empty.");
+        else if (k <= 0 || k > A.length) throw new IllegalArgumentException("k cannot be less than, equal to or greater than array length.");
+        return quickSelectHelper(A, k, 0, A.length - 1);
+    }
+
+    // Median of an unsorted array
+    public static int medianUnsortedArray(int[] A) {
+        if (A == null || A.length == 0) return Integer.MIN_VALUE;
+        return medianHelper(A, 0, A.length - 1);
+    }
+
+    private static int medianHelper(int[] A, int left, int right) {
+        if (left == right) return A[left];
+        int n = A.length / 2;
+        int q = partition(A, left, right);
+        if (q == n) return A[q];
+        else if (q < n) return medianHelper(A, q + 1, right);
+        return medianHelper(A, left, q - 1);
+    }
+
+    public static void mergeSort(int[] A) {
+        if (A.length < 2) return;
+        int mid = A.length / 2;
+
+        int[] left = Arrays.copyOfRange(A, 0, mid);
+        mergeSort(left);
+        int[] right = Arrays.copyOfRange(A, mid, A.length);
+        mergeSort(right);
+
+        // Merge both arrays
+        merge(A, left, right);
+    }
+
+    private static void merge(int[] A, int[] left, int[] right) {
+        int i = 0;                               // Index through the left array.
+        int j = 0;                               // Index through the right array.
+        int k = 0;                               // Index through the given array, A.
+
+        while (i < left.length && j < right.length) {
+            if (left[i] < right[j])
+                A[k++] = left[i++];
+            else
+                A[k++] = right[j++];
+        }
+
+        while (i < left.length)
+            A[k++] = left[i++];
+
+        while (j < right.length)
+            A[k++] = right[j++];
     }
 
 
