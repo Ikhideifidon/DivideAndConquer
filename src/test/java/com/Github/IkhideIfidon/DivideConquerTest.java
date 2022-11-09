@@ -8,15 +8,17 @@ import java.util.Random;
 
 
 class DivideConquerTest {
-    private final Random rand = new Random(0);
+    private final Random rand = new Random();
 
     // Utility method
     private int[] buildArray(int lowerbound, int upperbound) {
         final int  randLimit = upperbound * 10 - lowerbound + 1;
         final int[] linked = new int[upperbound];
+        rand.setSeed(0);
         for (int i = 0; i < upperbound; i++)
             linked[i] = lowerbound + rand.nextInt(randLimit);
-        Arrays.sort(linked);
+
+        // Arrays.sort(linked) for mergedKLists method;
         return linked;
     }
 
@@ -90,8 +92,10 @@ class DivideConquerTest {
     @Test
     public void hoareQuickSelect() {
         int[] nums = buildArray(45, 1000_000_00);
-        int k = 60;                        // return the smallest kth element in the array.
-        int result = nums[k-1];
+        int[] sortedNums = nums.clone();
+        Arrays.sort(sortedNums);                            // MergeSort
+        int k = 60;                                         // return the smallest kth element in the array.
+        int result = sortedNums[k-1];
         long startTime = System.currentTimeMillis();
         Assertions.assertEquals(result, DivideConquer.quickSelect(nums, k));
         long endTime = System.currentTimeMillis();
@@ -115,4 +119,46 @@ class DivideConquerTest {
         System.out.println("MergeSort\t");
         System.out.println("Time elapsed is: " + (endTime - startTime) + " milliseconds");
     }
+
+    @Test
+    public void insertionSort() {
+        int[] nums = buildArray(4, 100);
+        DivideConquer.insertionSort(nums);
+        System.out.println(Arrays.toString(nums));
+    }
+
+
+    @Test
+    public void maxSlidingWindowPriorityQueue() {
+        int[] A = buildArray(12, 100_000_000);
+        int k = 546;
+        long startTime = System.currentTimeMillis();
+        DivideConquer.maxSlidingWindow(A, k);
+        long endTime = System.currentTimeMillis();
+        System.out.println("PriorityQueue Maximum Sliding Window\t");
+        System.out.println("Time taken is " + (endTime - startTime) + " milliseconds");
+
+    }
+
+    @Test
+    public void maxSlidingWindowDeque() {
+        int[] A = buildArray(12, 100_000_000);
+        int k = 546;
+        long startTime = System.currentTimeMillis();
+        DivideConquer.maxSlidingWindowDeque(A, k);
+        long endTime = System.currentTimeMillis();
+        System.out.println("Deque Maximum Sliding Window\t");
+        System.out.println("Time taken is " + (endTime - startTime) + " milliseconds");
+    }
+
+    @Test
+    public void maxSlidingWindowPriorityQueueDequeCheck() {
+        int[] A = buildArray(12, 100_000_000);
+        int k = 546;
+        int i = rand.nextInt(A.length - k + 1);
+        int[] expectedDeque = DivideConquer.maxSlidingWindowDeque(A, k);
+        int[] expectedPriorityQueue = DivideConquer.maxSlidingWindow(A, k);
+        Assertions.assertEquals(expectedPriorityQueue[i], expectedDeque[i]);
+    }
+
 }

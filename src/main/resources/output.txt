@@ -12,7 +12,14 @@ MergeSort
 Time elapsed is: 8440 milliseconds
 
 QuickSort Based on Hoare's  Partition
-Time elapsed is: 1796 milliseconds
+Time elapsed is: 18584 milliseconds
 
 QuickSort Based on Randomized  Partition
 Time elapsed is: 7072 milliseconds
+
+
+PriorityQueue Maximum Sliding Window
+Time taken is 12330 milliseconds
+
+Deque Maximum Sliding Window
+Time taken is 4002 milliseconds

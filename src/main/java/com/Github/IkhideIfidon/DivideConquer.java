@@ -1,9 +1,6 @@
 package com.Github.IkhideIfidon;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Random;
+import java.util.*;
 
 public class DivideConquer {
 
@@ -264,9 +261,9 @@ public class DivideConquer {
 
     private static void quickSortHelper(int[] A, int left, int right) {
         if (left >= right) return;
-        int q = randomizedPartition(A, left, right);
-        quickSortHelper(A, left, q - 1);
-        quickSortHelper(A, q + 1, right);
+        int q = hoarePartition(A, left, right);
+        quickSortHelper(A, left, q - 1);                // Partition all the elements before the pivot index
+        quickSortHelper(A, q + 1, right);                // Partition all the elements after the pivot index
     }
 
     public static void quickSort(int[] A) {
@@ -277,8 +274,8 @@ public class DivideConquer {
     private static int quickSelectHelper(int[] A, int k, int left, int right) {
         if (left == right) return A[left];
         int q = hoarePartition(A, left, right);              // Partition index.
-        if (q == k - 1) return A[q];                              // Array is 0-indexed
-        else if (q < k - 1) return quickSelectHelper(A, k,q + 1, right);
+        if (q == k) return A[q];                              // Array is 0-indexed
+        else if (q < k) return quickSelectHelper(A, k,q + 1, right);
         return quickSelectHelper(A, k, left, q - 1);
     }
 
@@ -336,5 +333,73 @@ public class DivideConquer {
             A[k++] = right[j++];
     }
 
+    public static void insertionSort(int[] A) {
+        if (A == null || A.length <= 1) return;
+        for (int i = 1; i < A.length; i++) {
+            int temp = A[i];
 
+            int j = i - 1;
+            while (j >= 0 && A[j] > temp)
+                A[j + 1] = A[j--];                  // Right shift
+
+            A[j + 1] = temp;
+        }
+    }
+
+    // Time = O(nlogk)
+    // Space = O(n)
+    public static int[] maxSlidingWindow(int[] A, int k) {
+        if (A == null) throw new NullPointerException("Array cannot be null.");
+        if (k <= 0 || k > A.length)
+            throw new IllegalArgumentException("k must be in the range(1, Array length) included.");
+
+        // PriorityQueue of int[]
+        Comparator<int[]> comp = (o1, o2) -> Integer.compare(o2[1], o1[1]);
+
+        PriorityQueue<int[]> queue = new PriorityQueue<>(comp);
+        int[] result = new int[A.length - k + 1];
+        for (int i = 0; i < A.length; i++) {
+            // pop the root element if its index is out of bounds.
+            while (!queue.isEmpty() && (i - k) > queue.peek()[0])
+                queue.poll();
+
+            queue.offer(new int[]{i, A[i]});
+            if (i >= k - 1) {                          // Window size reached
+                assert queue.peek() != null;
+                result[i - k + 1] = queue.peek()[1];
+            }
+        }
+        return result;
+    }
+
+    public static int[] maxSlidingWindowDeque(int[] A, int k) {
+        if (A == null) throw new NullPointerException("Array cannot be null.");
+        if (k <= 0 || k > A.length)
+            throw new IllegalArgumentException("k must be in the range(1, Array length) included.");
+
+        // A = {1, 3, -1, -3, 5, 3, 6, 7}
+
+        // Maintain a monotonically decreasing queue that allows removal at the left end and addition at the right end
+        Deque<Integer> queue = new LinkedList<>();
+        int[] result = new int[A.length - k + 1];
+
+        for (int i = 0; i < A.length; i++) {
+
+            // pop the first element if its index is out of bounds.
+            if (!queue.isEmpty() && (i - k) > queue.peekFirst())
+                queue.pollFirst();
+
+            // This maintains monotonically decreasing queue.
+            while (!queue.isEmpty() && A[queue.peekLast()] < A[i])
+                queue.pollLast();
+
+            queue.offerLast(i);
+
+            if (i >= k - 1) {                          // Window size reached
+                assert queue.peekFirst() != null;
+                result[i - k + 1] = A[queue.peekFirst()];
+            }
+        }
+        return result;
+    }
 }
