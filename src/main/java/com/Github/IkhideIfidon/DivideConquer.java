@@ -402,4 +402,50 @@ public class DivideConquer {
         }
         return result;
     }
+
+    public static int majorityElement(int[] A) {
+        if (A == null) throw new NullPointerException("Array cannot be null.");
+        if (A.length == 0) throw new ArrayIndexOutOfBoundsException("Array cannot be empty.");
+        if (A.length == 1) return A[0];
+        int mid = A.length / 2;
+        int maxCount = 0;
+        int value = 0;
+        // Set is also a suitable data structure to use.
+        Map<Integer, Integer> frequency = new HashMap<>();
+        for (int num : A) {
+            frequency.put(num, frequency.getOrDefault(num, 0) + 1);
+            int temp = frequency.get(num);
+            if (temp > maxCount) {
+                maxCount = temp;
+                value = num;
+            }
+        }
+
+        return maxCount > mid ? value : Integer.MIN_VALUE;
+    }
+
+    // Using Boyer-Moore Voting Algorithm
+    // Time = O(n)
+    // Space = O(1)
+    public static int boyerMooreVotingAlgorithm(int[] A) {
+        int n = A.length;
+        int number = 0;
+        int count = 0;
+        for (int num : A) {
+            if (count == 0)
+                number = num;
+
+            count += num == number ? 1 : -1;
+        }
+
+        count = 0;
+        for (int num : A) {
+            if (num == number)
+                count++;
+
+            if (count > n / 2)
+                return number;
+        }
+        return Integer.MIN_VALUE;
+    }
 }

@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98b84a09-2895-4f11-aedc-5d7de21c1b67" name="Changes" comment="DivideConquer">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Github/IkhideIfidon/DivideConquer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Github/IkhideIfidon/DivideConquer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Github/IkhideIfidon/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Github/IkhideIfidon/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/Github/IkhideIfidon/DivideConquerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/Github/IkhideIfidon/DivideConquerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,8 +63,21 @@
       <recent name="com.Github.IkhideIfidon" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DivideConquerTest.maxSlidingWindowPriorityQueueDequeCheck">
-    <configuration name="DivideConquerTest.hoareQuickSelect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.Github.IkhideIfidon.Main" />
+      <module name="DivideAndConquer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.Github.IkhideIfidon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DivideConquerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DivideAndConquer" />
       <extension name="coverage">
         <pattern>
@@ -73,13 +87,28 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.Github.IkhideIfidon" />
       <option name="MAIN_CLASS_NAME" value="com.Github.IkhideIfidon.DivideConquerTest" />
-      <option name="METHOD_NAME" value="hoareQuickSelect" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DivideConquerTest.insertionSort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DivideAndConquer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.Github.IkhideIfidon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.Github.IkhideIfidon" />
+      <option name="MAIN_CLASS_NAME" value="com.Github.IkhideIfidon.DivideConquerTest" />
+      <option name="METHOD_NAME" value="insertionSort" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DivideConquerTest.maxSlidingWindow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DivideConquerTest.test1 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DivideAndConquer" />
       <extension name="coverage">
         <pattern>
@@ -89,13 +118,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.Github.IkhideIfidon" />
       <option name="MAIN_CLASS_NAME" value="com.Github.IkhideIfidon.DivideConquerTest" />
-      <option name="METHOD_NAME" value="maxSlidingWindow" />
+      <option name="METHOD_NAME" value="test1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DivideConquerTest.maxSlidingWindowDeque" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DivideConquerTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DivideAndConquer" />
       <extension name="coverage">
         <pattern>
@@ -105,39 +134,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.Github.IkhideIfidon" />
       <option name="MAIN_CLASS_NAME" value="com.Github.IkhideIfidon.DivideConquerTest" />
-      <option name="METHOD_NAME" value="maxSlidingWindowDeque" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DivideConquerTest.maxSlidingWindowPriorityQueue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DivideAndConquer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.Github.IkhideIfidon.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.Github.IkhideIfidon" />
-      <option name="MAIN_CLASS_NAME" value="com.Github.IkhideIfidon.DivideConquerTest" />
-      <option name="METHOD_NAME" value="maxSlidingWindowPriorityQueue" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DivideConquerTest.maxSlidingWindowPriorityQueueDequeCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DivideAndConquer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.Github.IkhideIfidon.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.Github.IkhideIfidon" />
-      <option name="MAIN_CLASS_NAME" value="com.Github.IkhideIfidon.DivideConquerTest" />
-      <option name="METHOD_NAME" value="maxSlidingWindowPriorityQueueDequeCheck" />
+      <option name="METHOD_NAME" value="test1(org.junit.jupiter.api.TestInfo)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -145,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DivideConquerTest.maxSlidingWindowPriorityQueueDequeCheck" />
-        <item itemvalue="JUnit.DivideConquerTest.maxSlidingWindowDeque" />
-        <item itemvalue="JUnit.DivideConquerTest.maxSlidingWindowPriorityQueue" />
-        <item itemvalue="JUnit.DivideConquerTest.maxSlidingWindow" />
-        <item itemvalue="JUnit.DivideConquerTest.hoareQuickSelect" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.DivideConquerTest" />
+        <item itemvalue="JUnit.DivideConquerTest.test1 (1)" />
+        <item itemvalue="JUnit.DivideConquerTest.test1" />
+        <item itemvalue="JUnit.DivideConquerTest.insertionSort" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667667797179</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="DivideConquer">
+      <created>1668011384243</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668011384243</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,16 +218,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="DivideConquer" />
     <option name="LAST_COMMIT_MESSAGE" value="DivideConquer" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/Github/IkhideIfidon/DivideConquer.java</url>
-          <line>171</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
