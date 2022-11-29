@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98b84a09-2895-4f11-aedc-5d7de21c1b67" name="Changes" comment="DivideConquer">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Github/IkhideIfidon/DivideConquer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Github/IkhideIfidon/DivideConquer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Github/IkhideIfidon/ListNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Github/IkhideIfidon/ListNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Github/IkhideIfidon/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Github/IkhideIfidon/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/Github/IkhideIfidon/DivideConquerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/Github/IkhideIfidon/DivideConquerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +24,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../LinkedList/src/main/java/com/ikhideifidon/SinglyLinkedList.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
